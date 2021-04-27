@@ -14,7 +14,7 @@ struct ConfirmPswd: View {
     @State var handleSubmit = false
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-            Text("Enter the CODE that has been sent to your Email")
+            Text("Please enter your new password here.")
                 .bold()
                 .font(.system(size: 20))
                 .padding(.bottom)

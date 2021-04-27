@@ -14,6 +14,7 @@ struct AccountView: View {
     @State var password = "abcdef"
     @State var handleUpdate = false
     @State var notification = false
+    @State var isLoggedOut = false
     var body: some View {
         NavigationView{
             ScrollView{
@@ -109,6 +110,24 @@ struct AccountView: View {
                     .cornerRadius(5)
                     .padding()
                     
+//                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+//                        Spacer()
+//                        Button(action: {
+//                            self.isLoggedOut.toggle()
+//                        }, label: {
+//                            Text("LOGOUT")
+//                                .font(.system(size: 18))
+//                                .fontWeight(.bold)
+//                        })
+//                        Spacer()
+//                    })
+//                    .padding()
+//                    .padding(.horizontal, 50)
+//                    .background(Color(.black))
+//                    .foregroundColor(.white)
+//                    .cornerRadius(5)
+//                    .padding(.horizontal)
+                    
                     NavigationLink(
                         destination: BottomNavBar(isLoggedOut: true),
                         label: {
@@ -146,10 +165,12 @@ struct AccountView: View {
 //                    , alignment: .top)
                 
             }
-            .animation(.easeOut)
+//            .animation(.easeInOut)
             .navigationBarTitle("Edit Profile")
+            
         }
     }
+    
 }
 
 struct AccountView_Previews: PreviewProvider {

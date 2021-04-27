@@ -21,13 +21,18 @@ struct CarDescView: View {
     @State private var isExpanded1 = false
     @State private var selectedValue1 = "Where do I find my myAudi PIN and what is it for?"
     @State var isHearted = false
-    @State var imgScale: CGFloat = 1.0
+    @State var imgScale: CGFloat = 0
+    
+    @State var imgList = ["insideA1", "insideA2", "insideA3", "insideA4"]
+    @State var imgSelected = false
+//    @State var currentScale: CGFloat = 0
+//    @State var lastScale: CGFloat = 0
+    
+    @State var currentScale: [CGFloat] = [0, 0, 0, 0]
+    @State var lastScale: [CGFloat] = [0, 0, 0, 0]
+    
     
     let faqAns = ["Audi connect is a subscription based services. If you experience an outage with your services first confirm that your subscription is up to date by logging into your account on www.myaudiconnect.com. If assistance is required accessing this account you may reach our billing and subscription team at + 1 877 505 2834, prompt 1. If you confirm the subscription is active but services are still not working there are several troubleshooting steps which may correct the issue and resume services. Please consult your owner’s manual for direction, or if further assistance is needed you may reach our Audi Customer Experience Center at + 1 800 822 2834.", "Your myAudi PIN is used to link your vehicle with your myAudi account. The PIN is found inside your online myAudi account or MMI Connect app. With successful entry of the myAudi PIN you will be able to use features like sending destinations to the vehicle and personalize certain myAudi services (if applicable)."]
-    
-    //    init() {
-    //        UIScrollView.appearance().bounces = false
-    //    }
     
     var body: some View {
         
@@ -62,24 +67,63 @@ struct CarDescView: View {
                     .foregroundColor(Color(.label))
                 })
                 
+                
                 Image(image)
                     .resizable()
                     .frame(width: 350, height: 250)
                     .scaledToFill()
                     .cornerRadius(6)
                     .shadow(radius: 5 )
-                    .scaleEffect(self.imgScale)
-                    .gesture(MagnificationGesture().onChanged({
-                        val in
-                        self.imgScale = val.magnitude
-                    }).onEnded({ (scaleFinal) in
-                        self.imgScale = scaleFinal.magnitude
+                    .scaleEffect(1 + imgScale)
+                    .gesture(MagnificationGesture().onChanged({ value in
+                        imgScale = value - 1
+                    }).onEnded({ value in
+                        withAnimation(.spring()){
+                            imgScale = 0
+                        }
                     }))
+                //                    .scaleEffect(self.imgScale)
+                //                    .gesture(MagnificationGesture().onChanged({
+                //                        val in
+                //                        self.imgScale = val.magnitude
+                //                    })
+                //                    .onEnded({ (scaleFinal) in
+                //                        self.imgScale = scaleFinal.magnitude
+                //                    })
+                //                    )
                 
                 Text(price)
                     .font(.system(size: 25))
                     .bold()
                 
+                
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    Text("Images:")
+                        .font(.system(size: 23))
+                        .bold()
+                        .padding(.leading, 10)
+                    Spacer()
+//                    Spacer()
+                })
+                .padding(.leading)
+                
+                let colums = Array(repeating: GridItem(.flexible(), spacing: -35), count: 2)
+                
+                LazyVGrid(columns: colums, alignment: .center, spacing: 10, content: {
+                    
+                    ForEach(imgList, id: \.self){
+                        icon in
+                        Button(action: {
+                            self.imgSelected.toggle()
+                        }, label: {
+                            Image(icon)
+                                .resizable()
+                                .frame(width: 180, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(8)
+                        })
+                    }
+                })
                 
                 // Image and Specs
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -193,9 +237,9 @@ struct CarDescView: View {
                         Divider()
                             .padding(.top, 10)
                         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                                Text(faqAns[0])
-                                    .font(.system(size: 18))
-                                    .padding(.top, 10)
+                            Text(faqAns[0])
+                                .font(.system(size: 18))
+                                .padding(.top, 10)
                         })
                     }
                     .padding(10)
@@ -206,11 +250,49 @@ struct CarDescView: View {
                 })
             })
         }
-        
+        .overlay(
+            ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
+                if imgSelected{
+                    TabView {
+                        ForEach(0..<imgList.count, id: \.self){
+                            index in
+                            Image(imgList[index])
+                                .resizable()
+                                .scaledToFit()
+//                                .scaleEffect(1 + currentScale[index] + lastScale[index])
+                                .scaleEffect(1 + currentScale[index])
+                                .gesture(MagnificationGesture().onChanged({ value in
+                                    currentScale[index] = value - 1
+                                }).onEnded({ value in
+//                                    lastScale[index] += currentScale[index]
+                                    currentScale[index] = 0
+                                }))
+                        }
+                    }
+                    .background(Color.black)
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .tabViewStyle(PageTabViewStyle())
+                    .overlay(
+                        Button(action: {
+                            withAnimation(.default){
+                                self.imgSelected.toggle()
+                            }
+                        }, label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.white.opacity(0.35))
+                                .clipShape(Circle())
+                        })
+                        , alignment: .topTrailing
+                    )
+                    .navigationBarHidden(true)
+                }
+            }))
         .navigationBarTitle(Text(title))
-//                                .font(.system(size: 20)))
         
     }
+    
 }
 
 struct CarDescView_Previews: PreviewProvider {

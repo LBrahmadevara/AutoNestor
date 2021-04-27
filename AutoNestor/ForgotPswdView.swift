@@ -18,7 +18,7 @@ struct ForgotPswdView: View {
     @State var handleEmail = false
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-            Text("Please enter the email to recover the password.")
+            Text("Please enter the email linked to your account")
                 .bold()
                 .font(.system(size: 20))
                 .padding(.bottom)

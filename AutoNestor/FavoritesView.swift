@@ -62,7 +62,7 @@ struct FavoritesView: View {
                     .padding(.vertical, 4)
                     .padding(.horizontal, 10)
                 })
-                .animation(.easeOut)
+//                .animation(.default)
                 .navigationBarTitle("Favorites")
             }
         }
