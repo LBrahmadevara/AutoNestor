@@ -10,35 +10,51 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack{
-                ZStack{
-                    Image("Car").resizable().edgesIgnoringSafeArea(.all)
-                    VStack(alignment: .center, spacing: nil, content: {
-                        Spacer()
-                        HStack(alignment: .bottom, spacing: nil, content: {
+            GeometryReader { geometry in
+                VStack{
+                    ZStack{
+                        Image("Car").resizable().edgesIgnoringSafeArea(.all)
+                        VStack(alignment: .center, spacing: nil, content: {
                             Spacer()
-                            Text("Auto Nestor").foregroundColor(.white).bold().font(.system(size: 40, weight: .bold, design: .rounded)).padding(25)
+                            HStack(alignment: .bottom, spacing: nil, content: {
+                                Spacer()
+                                Text("Auto Nestor")
+                                    .foregroundColor(.white).bold().font(.system(size: 40, weight: .bold, design: .rounded)).padding(25)
+                            })
                         })
+                    }
+                    
+                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                        NavigationLink(
+                            destination: LoginView(),
+                            label: {
+                                Text("LOG IN")
+                                    .foregroundColor(.black)
+                                    .bold()
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2.5)
+                                    .cornerRadius(6.0)
+                            })
+                        Spacer()
+                        NavigationLink(
+                            destination: RegisterView(),
+                            label: {
+                                Text("REGISTER")
+                                    .foregroundColor(.black)
+                                    .bold()
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2.5)
+                                    .cornerRadius(6.0)
+                            })
                     })
+                    .padding(.top)
+                    .padding(.horizontal)
+                    
                 }
-                HStack(alignment: .center, content: {
-                    NavigationLink(
-                        destination: LoginView(),
-                        label: {
-                            Text("LOG IN").foregroundColor(.black).bold().padding(.horizontal, 60).padding(.vertical, 18).border(Color.black, width: 2.5).cornerRadius(6.0)
-                        }
-                    )
-                    .padding(.trailing, 4)
-                    NavigationLink(
-                        destination: RegisterView(),
-                        label: {
-                            Text("REGISTER").foregroundColor(.black).bold().padding(.horizontal, 60).padding(.vertical, 18).border(Color.black, width: 2.5).cornerRadius(6.0)
-                        })
-                })
-                .padding(.top, 20)
+                .navigationBarHidden(true)
             }
-//            .navigationBarTitle("")
-            .navigationBarHidden(true)
         }
         .navigationBarHidden(true)
     }

@@ -56,7 +56,9 @@ struct RegisterView: View {
                         //                                                notification.toggle()
                         //                                            }
                     }, label: {
-                        Text("REGISTER").bold().accentColor(.white).frame(width: 375, height: 50, alignment: .center)
+                        Text("REGISTER").bold().accentColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
                     })
                     .alert(isPresented: $notification, content: {
                         Alert(title: Text("Register Successful"), message: Text("Please Login."), dismissButton: .default(Text("OK"), action: {

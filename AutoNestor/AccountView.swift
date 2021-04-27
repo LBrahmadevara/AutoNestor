@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @State var fName = "Likhitha"
-    @State var lName = "Lucky"
+    @State var lName = "Brahmadevara"
     @State var email = "abc@gmail.com"
     @State var password = "abcdef"
     @State var handleUpdate = false
@@ -29,7 +29,8 @@ struct AccountView: View {
                             .border(Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(30)
+                    .padding(15)
+                    .padding(.top)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Last Name:")
@@ -42,7 +43,9 @@ struct AccountView: View {
                             .border(Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(.horizontal, 30)
+                    .padding(15)
+                    .padding(.top, -5)
+//                    .padding(.horizontal, 30)
                     
                     HStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Email:")
@@ -61,7 +64,8 @@ struct AccountView: View {
                             .border(Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(30)
+                    .padding(15)
+                    .padding(.top, -5)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Password:")
@@ -75,7 +79,8 @@ struct AccountView: View {
                             .border(Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(.horizontal, 30)
+                    .padding(15)
+                    .padding(.top, -5)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Spacer()

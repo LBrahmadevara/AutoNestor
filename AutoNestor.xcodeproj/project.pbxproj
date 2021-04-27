@@ -21,6 +21,9 @@
 		1785F6902627B5BE006BE1A5 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785F68F2627B5BE006BE1A5 /* DropDownView.swift */; };
 		1785F69D26280741006BE1A5 /* CarModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785F69C26280741006BE1A5 /* CarModelView.swift */; };
 		1785F6A1262814FA006BE1A5 /* CarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785F6A0262814FA006BE1A5 /* CarListView.swift */; };
+		17ABE15E263761D500C1DF29 /* ForgotPswdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */; };
+		17ABE1612637784C00C1DF29 /* ForgotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1602637784C00C1DF29 /* ForgotCode.swift */; };
+		17ABE1642637799000C1DF29 /* ConfirmPswd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1632637799000C1DF29 /* ConfirmPswd.swift */; };
 		17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0E2D1262A3EAA0027284A /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		1785F68F2627B5BE006BE1A5 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		1785F69C26280741006BE1A5 /* CarModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelView.swift; sourceTree = "<group>"; };
 		1785F6A0262814FA006BE1A5 /* CarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListView.swift; sourceTree = "<group>"; };
+		17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPswdView.swift; sourceTree = "<group>"; };
+		17ABE1602637784C00C1DF29 /* ForgotCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotCode.swift; sourceTree = "<group>"; };
+		17ABE1632637799000C1DF29 /* ConfirmPswd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPswd.swift; sourceTree = "<group>"; };
 		17E0E2D1262A3EAA0027284A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,9 @@
 				170C0189262900A40059FB32 /* FavoritesView.swift */,
 				170C018C262904460059FB32 /* CarDescView.swift */,
 				17E0E2D1262A3EAA0027284A /* AccountView.swift */,
+				17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */,
+				17ABE1602637784C00C1DF29 /* ForgotCode.swift */,
+				17ABE1632637799000C1DF29 /* ConfirmPswd.swift */,
 			);
 			path = AutoNestor;
 			sourceTree = "<group>";
@@ -176,12 +185,15 @@
 				1785F6892627AFE4006BE1A5 /* FilterView.swift in Sources */,
 				1785F6A1262814FA006BE1A5 /* CarListView.swift in Sources */,
 				174F81E3262568FD00AFA1CD /* LoginView.swift in Sources */,
+				17ABE1612637784C00C1DF29 /* ForgotCode.swift in Sources */,
 				173D275E2626687A00F499CD /* RegisterView.swift in Sources */,
 				1785F6852627A761006BE1A5 /* BottomNavBar.swift in Sources */,
+				17ABE1642637799000C1DF29 /* ConfirmPswd.swift in Sources */,
 				172697132624EB5300E9D30F /* ContentView.swift in Sources */,
 				1785F69D26280741006BE1A5 /* CarModelView.swift in Sources */,
 				1785F6902627B5BE006BE1A5 /* DropDownView.swift in Sources */,
 				172697112624EB5300E9D30F /* AutoNestorApp.swift in Sources */,
+				17ABE15E263761D500C1DF29 /* ForgotPswdView.swift in Sources */,
 				17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */,
 				171F9E9C2626C68D00D47C90 /* HomePageView.swift in Sources */,
 			);
@@ -313,6 +325,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AutoNestor/Preview Content\"";
+				DEVELOPMENT_TEAM = 52LLS83686;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AutoNestor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -334,6 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AutoNestor/Preview Content\"";
+				DEVELOPMENT_TEAM = 52LLS83686;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AutoNestor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

@@ -15,6 +15,8 @@ struct LoginView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
+            
+            
             TextField("Email address", text: $email)
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -26,16 +28,19 @@ struct LoginView: View {
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .border(Color.black, width: 2)
-                .cornerRadius(4).padding(.bottom)
+                .cornerRadius(4)
+                .padding(.bottom, 10)
             
-//            NavigationLink(
-//                destination: BottomNavBar(),
-//                label: {
-//                    Text("LOGIN").bold()
-//                        .accentColor(.white).frame(width: 375, height: 50, alignment: .center)
-//                }
-//            )
-//            .background(Color(.black)).cornerRadius(4)
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                Spacer()
+                NavigationLink(
+                    destination: ForgotPswdView(),
+                    label: {
+                        Text("Forgot password?")
+                    })
+            })
+            .padding(.bottom, 10)
+            
             
             NavigationLink(
                 destination: BottomNavBar(isLoggedOut: false),
@@ -50,7 +55,10 @@ struct LoginView: View {
                         }
                     }, label: {
                         Text("LOGIN").bold()
-                            .accentColor(.white).frame(width: 375, height: 50, alignment: .center)
+                            .accentColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+//                            .frame(width: 375, height: 50, alignment: .center)
                     })
                     .alert(isPresented: $loginAlert, content: {
                         Alert(title: Text("Login Error"), message: Text("Email and Password mismatch."), dismissButton: .default(Text("OK")))

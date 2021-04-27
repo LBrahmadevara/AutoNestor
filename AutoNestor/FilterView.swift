@@ -146,7 +146,7 @@ struct FilterView: View {
                 
                 // Fuel Type
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                    Text("Drive Type")
+                    Text("Fuel Type")
                         .font(.system(size: 22))
                         .bold()
                         .padding(8)
@@ -179,7 +179,7 @@ struct FilterView: View {
                 
                 // Color
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                    Text("Drive Type")
+                    Text("Color")
                         .font(.system(size: 22))
                         .bold()
                         .padding(8)
@@ -219,16 +219,15 @@ struct FilterView: View {
                                 .font(.system(size: 20))
                                 .bold()
                                 .padding()
-                                .frame(width: 382, height: 50, alignment: .center)
+                                .frame(maxWidth: .infinity)
                                 .foregroundColor(.white)
                                 .background(Color(.black))
                                 .cornerRadius(4)
                                 .padding(.top)
                         })
                 }
-                .padding(.bottom)
-                
-                
+                .padding()
+                .padding(.top, -4)
             })
             .navigationTitle("Filters")
         }
