@@ -207,8 +207,8 @@ struct CarDescView: View {
             })
         }
         
-        .navigationBarTitle(Text(title)
-                                .font(.system(size: 20)))
+        .navigationBarTitle(Text(title))
+//                                .font(.system(size: 20)))
         
     }
 }

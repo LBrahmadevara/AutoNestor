@@ -11,7 +11,7 @@ struct ForgotCode: View {
     @State var code = ""
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-            Text("Enter the CODE that has been sent to your Email")
+            Text("Enter the code that has been sent to your Email")
                 .bold()
                 .font(.system(size: 20))
                 .padding(.bottom)

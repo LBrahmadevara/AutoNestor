@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+enum ActiveAlert {
+    case first, second
+}
+
 struct ForgotPswdView: View {
     @State var email: String = ""
+    @State private var showAlert = false
+    @State private var activeAlert: ActiveAlert = .first
     @State var handleEmail = false
-    @State var emptyEmail = false
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
             Text("Please enter the email to recover the password.")
@@ -25,20 +30,32 @@ struct ForgotPswdView: View {
             
             NavigationLink(
                 destination: ForgotCode(),
+                isActive: $handleEmail,
                 label: {
                     Button(action: {
-                        if email != ""{
-                            emptyEmail.toggle()
+                        if email == ""{
+                            self.activeAlert = .first
                         }
                         else{
-                            handleEmail.toggle()
+                            self.activeAlert = .second
                         }
+                        self.showAlert = true
                     }, label: {
                         Text("Next").bold()
                             .font(.system(size: 21))
                             .accentColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        switch activeAlert{
+                        case .first:
+                            return Alert(title: Text("Error"), message: Text("Please enter your email"), dismissButton: .default(Text("OK")))
+                        case .second:
+                            return Alert(title: Text("Success"), message: Text("Code has been sent to your email"), dismissButton: .default(Text("OK"), action: {
+                                handleEmail.toggle()
+                            }))
+                        }
                     })
                 })
                 .background(Color.black)

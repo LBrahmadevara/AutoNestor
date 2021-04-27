@@ -10,6 +10,8 @@ import SwiftUI
 struct ConfirmPswd: View {
     @State var pswd = ""
     @State var confirmPswd = ""
+    @State var showAlert = false
+    @State var handleSubmit = false
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
             Text("Enter the CODE that has been sent to your Email")
@@ -28,12 +30,22 @@ struct ConfirmPswd: View {
                 .padding(.bottom)
             NavigationLink(
                 destination: LoginView(),
+                isActive: $handleSubmit,
                 label: {
-                    Text("Submit").bold()
-                        .font(.system(size: 21))
-                        .accentColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                    Button(action: {
+                        showAlert.toggle()
+                    }, label: {
+                        Text("Submit").bold()
+                            .font(.system(size: 21))
+                            .accentColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("Success"), message: Text("Password has updated successfully."), dismissButton: .default(Text("OK"), action: {
+                            handleSubmit.toggle()
+                        }))
+                    })
                 })
                 .background(Color.black)
                 .cornerRadius(4)
