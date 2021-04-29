@@ -16,7 +16,7 @@ struct AccountView: View {
     @State var notification = false
     @State var isLoggedOut = false
     var body: some View {
-        NavigationView{
+//        NavigationView{
             ScrollView{
                 VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -46,7 +46,7 @@ struct AccountView: View {
                     })
                     .padding(15)
                     .padding(.top, -5)
-//                    .padding(.horizontal, 30)
+                    //                    .padding(.horizontal, 30)
                     
                     HStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Email:")
@@ -87,10 +87,10 @@ struct AccountView: View {
                         Spacer()
                         Button(action: {
                             notification.toggle()
-//                            handleUpdate.toggle()
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//                                handleUpdate.toggle()
-//                            }
+                            //                            handleUpdate.toggle()
+                            //                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            //                                handleUpdate.toggle()
+                            //                            }
                         }, label: {
                             Text("UPDATE")
                                 .font(.system(size: 18))
@@ -110,26 +110,8 @@ struct AccountView: View {
                     .cornerRadius(5)
                     .padding()
                     
-//                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-//                        Spacer()
-//                        Button(action: {
-//                            self.isLoggedOut.toggle()
-//                        }, label: {
-//                            Text("LOGOUT")
-//                                .font(.system(size: 18))
-//                                .fontWeight(.bold)
-//                        })
-//                        Spacer()
-//                    })
-//                    .padding()
-//                    .padding(.horizontal, 50)
-//                    .background(Color(.black))
-//                    .foregroundColor(.white)
-//                    .cornerRadius(5)
-//                    .padding(.horizontal)
-                    
                     NavigationLink(
-                        destination: BottomNavBar(isLoggedOut: true),
+                        destination: ContentView(),
                         label: {
                             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                                 Spacer()
@@ -146,29 +128,10 @@ struct AccountView: View {
                             .padding(.horizontal)
                         })
                 })
-//                .overlay(
-//                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-//                        if handleUpdate{
-//                            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-//                                Spacer()
-//                                Text("Details Updated!!")
-//                                    .font(.system(size: 20))
-//                                    .bold()
-//                                    .foregroundColor(.white)
-//                                Spacer()
-//                            }).padding(23)
-//                            .foregroundColor(.white)
-//                            .background(Color(.black))
-//                        }
-//                    })
-//                    .animation(Animation.easeInOut(duration: 0.3).delay(0.3))
-//                    , alignment: .top)
-                
             }
-//            .animation(.easeInOut)
-            .navigationBarTitle("Edit Profile")
+//            .navigationBarTitle("Edit Profile")
             
-        }
+//        }
     }
     
 }

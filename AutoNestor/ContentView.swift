@@ -36,6 +36,7 @@ struct ContentView: View {
                                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2.5)
                                     .cornerRadius(6.0)
                             })
+                        
                         Spacer()
                         NavigationLink(
                             destination: RegisterView(),

@@ -16,7 +16,6 @@
 		172697182624EB5700E9D30F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172697172624EB5700E9D30F /* Preview Assets.xcassets */; };
 		173D275E2626687A00F499CD /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D275D2626687A00F499CD /* RegisterView.swift */; };
 		174F81E3262568FD00AFA1CD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174F81E2262568FD00AFA1CD /* LoginView.swift */; };
-		1771E0BC2637B7C400296014 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E0BB2637B7C300296014 /* TestView.swift */; };
 		1771E0BE2638ADCD00296014 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771E0BD2638ADCD00296014 /* ImageView.swift */; };
 		1785F6852627A761006BE1A5 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785F6842627A761006BE1A5 /* BottomNavBar.swift */; };
 		1785F6892627AFE4006BE1A5 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785F6882627AFE4006BE1A5 /* FilterView.swift */; };
@@ -26,6 +25,7 @@
 		17ABE15E263761D500C1DF29 /* ForgotPswdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */; };
 		17ABE1612637784C00C1DF29 /* ForgotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1602637784C00C1DF29 /* ForgotCode.swift */; };
 		17ABE1642637799000C1DF29 /* ConfirmPswd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1632637799000C1DF29 /* ConfirmPswd.swift */; };
+		17B3A43F263A3512001FA84D /* NavBarBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3A43E263A3512001FA84D /* NavBarBottom.swift */; };
 		17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0E2D1262A3EAA0027284A /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,6 @@
 		172697192624EB5700E9D30F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		173D275D2626687A00F499CD /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		174F81E2262568FD00AFA1CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		1771E0BB2637B7C300296014 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		1771E0BD2638ADCD00296014 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		1785F6842627A761006BE1A5 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
 		1785F6882627AFE4006BE1A5 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPswdView.swift; sourceTree = "<group>"; };
 		17ABE1602637784C00C1DF29 /* ForgotCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotCode.swift; sourceTree = "<group>"; };
 		17ABE1632637799000C1DF29 /* ConfirmPswd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPswd.swift; sourceTree = "<group>"; };
+		17B3A43E263A3512001FA84D /* NavBarBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarBottom.swift; sourceTree = "<group>"; };
 		17E0E2D1262A3EAA0027284A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,11 +84,28 @@
 		1726970F2624EB5300E9D30F /* AutoNestor */ = {
 			isa = PBXGroup;
 			children = (
+				17B3A43D263A34F8001FA84D /* Views */,
 				172697102624EB5300E9D30F /* AutoNestorApp.swift */,
 				172697122624EB5300E9D30F /* ContentView.swift */,
 				172697142624EB5700E9D30F /* Assets.xcassets */,
 				172697192624EB5700E9D30F /* Info.plist */,
 				172697162624EB5700E9D30F /* Preview Content */,
+			);
+			path = AutoNestor;
+			sourceTree = "<group>";
+		};
+		172697162624EB5700E9D30F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				172697172624EB5700E9D30F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17B3A43D263A34F8001FA84D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17B3A43E263A3512001FA84D /* NavBarBottom.swift */,
 				174F81E2262568FD00AFA1CD /* LoginView.swift */,
 				173D275D2626687A00F499CD /* RegisterView.swift */,
 				171F9E9B2626C68D00D47C90 /* HomePageView.swift */,
@@ -103,18 +120,9 @@
 				17ABE15D263761D500C1DF29 /* ForgotPswdView.swift */,
 				17ABE1602637784C00C1DF29 /* ForgotCode.swift */,
 				17ABE1632637799000C1DF29 /* ConfirmPswd.swift */,
-				1771E0BB2637B7C300296014 /* TestView.swift */,
 				1771E0BD2638ADCD00296014 /* ImageView.swift */,
 			);
-			path = AutoNestor;
-			sourceTree = "<group>";
-		};
-		172697162624EB5700E9D30F /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				172697172624EB5700E9D30F /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +203,6 @@
 				1771E0BE2638ADCD00296014 /* ImageView.swift in Sources */,
 				173D275E2626687A00F499CD /* RegisterView.swift in Sources */,
 				1785F6852627A761006BE1A5 /* BottomNavBar.swift in Sources */,
-				1771E0BC2637B7C400296014 /* TestView.swift in Sources */,
 				17ABE1642637799000C1DF29 /* ConfirmPswd.swift in Sources */,
 				172697132624EB5300E9D30F /* ContentView.swift in Sources */,
 				1785F69D26280741006BE1A5 /* CarModelView.swift in Sources */,
@@ -203,6 +210,7 @@
 				172697112624EB5300E9D30F /* AutoNestorApp.swift in Sources */,
 				17ABE15E263761D500C1DF29 /* ForgotPswdView.swift in Sources */,
 				17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */,
+				17B3A43F263A3512001FA84D /* NavBarBottom.swift in Sources */,
 				171F9E9C2626C68D00D47C90 /* HomePageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

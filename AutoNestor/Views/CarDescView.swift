@@ -12,7 +12,7 @@ struct CarDescView: View {
     var title: String
     var price: String
     var image: String
-    
+        
     let stars = ["star.fill", "star.fill", "star.fill", "star.fill", "star"]
     let specTitles = ["Transmission", "Body", "Seats", "Exterior Color", "Interior Color", "Fuel Economy"]
     let specVal = ["8 Speed Automatic", "Sedan", "4", "White", "Daytona Gray Pearl", "18.0/24.0 mpg City/Hwy"]
@@ -92,9 +92,16 @@ struct CarDescView: View {
                 //                    })
                 //                    )
                 
-                Text(price)
-                    .font(.system(size: 25))
-                    .bold()
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    Text(price)
+                        .font(.system(size: 25))
+                        .bold()
+                    Divider().padding(.horizontal, 22)
+                })
+                
+//                Text(price)
+//                    .font(.system(size: 25))
+//                    .bold()
                 
                 
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -125,9 +132,12 @@ struct CarDescView: View {
                     }
                 })
                 
+//                Divider()
+                
                 // Image and Specs
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content:{
+//                        Divider().padding(.horizontal, 22)
                         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                             Image("wheel1")
                                 .resizable()
@@ -288,7 +298,8 @@ struct CarDescView: View {
                     )
                     .navigationBarHidden(true)
                 }
-            }))
+            }).padding(.bottom, 0.1)
+        )
         .navigationBarTitle(Text(title))
         
     }

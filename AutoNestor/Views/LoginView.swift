@@ -43,11 +43,12 @@ struct LoginView: View {
             
             
             NavigationLink(
-                destination: BottomNavBar(isLoggedOut: false),
+                destination: NavBarBottom(),
+//                destination: BottomNavBar(isLoggedOut: false),
                 isActive: $handleLogin,
                 label: {
                     Button(action: {
-                        if email != "Abc@gmail.com"{
+                        if email == "Abc@gmail.com"{
                             handleLogin.toggle()
                         }
                         else{

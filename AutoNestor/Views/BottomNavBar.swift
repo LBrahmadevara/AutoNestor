@@ -12,6 +12,7 @@ struct BottomNavBar: View {
     @State var selectedIndex = 1
     var isLoggedOut: Bool
     let tabBarImageNames = ["person.fill", "house.fill", "heart.fill"]
+    @State var tabNames = ["Account", "Home", "Favorites"]
     
     var body: some View {
                 VStack{
@@ -40,16 +41,20 @@ struct BottomNavBar: View {
                         HStack{
                             ForEach(0..<tabBarImageNames.count){
                                 num in
-                                Button(action: {
-                                    selectedIndex = num
-                                    print(isLoggedOut)
-        
-                                }, label: {
-                                    Spacer()
-                                    Image(systemName: tabBarImageNames[num])
-                                        .font(.system(size: 33, weight: .bold))
+                                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                                    Button(action: {
+                                        self.selectedIndex = num
+                                        
+                                    }, label: {
+                                        Spacer()
+                                        Image(systemName: tabBarImageNames[num])
+                                            .font(.system(size: 28, weight: .bold))
+                                            .foregroundColor(selectedIndex == num ? Color(.label) : Color(.lightGray))
+                                        Spacer()
+                                    })
+                                    Text(tabNames[num])
+                                        .font(.system(size: 15))
                                         .foregroundColor(selectedIndex == num ? Color(.label) : Color(.lightGray))
-                                    Spacer()
                                 })
                             }
                         }
