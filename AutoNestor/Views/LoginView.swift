@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var loginAlert = false
@@ -19,15 +21,16 @@ struct LoginView: View {
             
             TextField("Email address", text: $email)
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .foregroundColor(colorScheme == .dark ? .white : .black)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
                 .padding(.bottom)
                 
             SecureField("Password", text: $password)
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
                 .padding(.bottom, 10)
             
@@ -44,7 +47,6 @@ struct LoginView: View {
             
             NavigationLink(
                 destination: NavBarBottom(),
-//                destination: BottomNavBar(isLoggedOut: false),
                 isActive: $handleLogin,
                 label: {
                     Button(action: {
@@ -56,20 +58,20 @@ struct LoginView: View {
                         }
                     }, label: {
                         Text("LOGIN").bold()
-                            .accentColor(.white)
+                            .accentColor(colorScheme == .dark ? Color.black : Color.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-//                            .frame(width: 375, height: 50, alignment: .center)
                     })
                     .alert(isPresented: $loginAlert, content: {
                         Alert(title: Text("Login Error"), message: Text("Email and Password mismatch."), dismissButton: .default(Text("OK")))
                     })
                 }
             )
-            .background(Color(.black)).cornerRadius(4)
+            .background(colorScheme == .dark ? Color.white : Color.black).cornerRadius(4)
             
             Spacer()
         })
+        .padding(.top, 140)
         .padding(.horizontal, 20)
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
@@ -79,6 +81,9 @@ struct LoginView: View {
                         }
                     }
         }
+        .background(colorScheme == .dark ? Color.black : Color.white)
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        
     }
 }
 
@@ -88,5 +93,6 @@ struct LoginView_Previews: PreviewProvider {
             LoginView()
 //                .navigationBarHidden(true)
         }
+        .preferredColorScheme(.dark)
     }
 }

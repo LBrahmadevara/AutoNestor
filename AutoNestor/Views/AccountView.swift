@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var fName = "Likhitha"
     @State var lName = "Brahmadevara"
     @State var email = "abc@gmail.com"
@@ -27,7 +28,7 @@ struct AccountView: View {
                         TextField("", text: $fName)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
                     .padding(15)
@@ -41,7 +42,7 @@ struct AccountView: View {
                         TextField("", text: $lName)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
                     .padding(15)
@@ -62,7 +63,7 @@ struct AccountView: View {
                         TextField("", text: $email)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
                     .padding(15)
@@ -77,7 +78,7 @@ struct AccountView: View {
                         SecureField("", text: $password)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
                     .padding(15)
@@ -105,8 +106,8 @@ struct AccountView: View {
                     })
                     .padding()
                     .padding(.horizontal, 50)
-                    .background(Color(.black))
-                    .foregroundColor(.white)
+                    .background(colorScheme == .dark ? Color.white : Color.black)
+                    .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(5)
                     .padding()
                     
@@ -122,8 +123,8 @@ struct AccountView: View {
                             })
                             .padding()
                             .padding(.horizontal, 50)
-                            .background(Color(.black))
-                            .foregroundColor(.white)
+                            .background(colorScheme == .dark ? Color.white : Color.black)
+                            .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                             .cornerRadius(5)
                             .padding(.horizontal)
                         })
@@ -139,5 +140,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
+            .preferredColorScheme(.light)
     }
 }

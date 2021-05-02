@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FilterView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     let bodyType = ["None", "Coupe", "Convertible", "Sedan"]
     let driveType = ["None", "4WD", "AWD", "FWD"]
@@ -44,12 +45,12 @@ struct FilterView: View {
                 HStack{
                     TextField("Min", text: $minPrice)
                         .padding()
-                        .border(Color.black, width: 2)
+                        .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                         .cornerRadius(4)
                         .padding(.leading)
                     TextField("Max", text: $maxPrice)
                         .padding()
-                        .border(Color.black, width: 2)
+                        .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                         .cornerRadius(4)
                         .padding(.trailing)
                         .padding(.leading, 5)
@@ -67,12 +68,12 @@ struct FilterView: View {
                 HStack{
                     TextField("Min", text: $minYear)
                         .padding()
-                        .border(Color.black, width: 2)
+                        .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                         .cornerRadius(4)
                         .padding(.leading)
                     TextField("Max", text: $maxYear)
                         .padding()
-                        .border(Color.black, width: 2)
+                        .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                         .cornerRadius(4)
                         .padding(.trailing)
                         .padding(.leading, 5)
@@ -105,7 +106,7 @@ struct FilterView: View {
                         }
                     }
                     .padding()
-                    .border(Color.black, width: 2)
+                    .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                     .cornerRadius(4)
                     .padding(.horizontal)
                 })
@@ -138,7 +139,7 @@ struct FilterView: View {
                         }
                     }
                     .padding()
-                    .border(Color.black, width: 2)
+                    .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                     .cornerRadius(4)
                     .padding(.horizontal)
                 })
@@ -171,7 +172,7 @@ struct FilterView: View {
                         }
                     }
                     .padding()
-                    .border(Color.black, width: 2)
+                    .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                     .cornerRadius(4)
                     .padding(.horizontal)
                 })
@@ -204,7 +205,7 @@ struct FilterView: View {
                         }
                     }
                     .padding()
-                    .border(Color.black, width: 2)
+                    .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                     .cornerRadius(4)
                     .padding(.horizontal)
                 })
@@ -220,8 +221,8 @@ struct FilterView: View {
                                 .bold()
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .foregroundColor(.white)
-                                .background(Color(.black))
+                                .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
+                                .background(colorScheme == .dark ? Color.white : Color.black)
                                 .cornerRadius(4)
                                 .padding(.top)
                         })
@@ -239,5 +240,6 @@ struct FilterView_Previews: PreviewProvider {
         NavigationView{
             FilterView()
         }
+        .preferredColorScheme(.light)
     }
 }

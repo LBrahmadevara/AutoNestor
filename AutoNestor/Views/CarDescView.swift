@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CarDescView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
     var title: String
     var price: String
     var image: String
@@ -96,7 +96,9 @@ struct CarDescView: View {
                     Text(price)
                         .font(.system(size: 25))
                         .bold()
-                    Divider().padding(.horizontal, 22)
+                    Divider()
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
+                        .padding(.horizontal, 22)
                 })
                 
 //                Text(price)
@@ -133,11 +135,17 @@ struct CarDescView: View {
                 })
                 
 //                Divider()
-                
+//                    .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
+//                    .padding(.horizontal, 22)
                 // Image and Specs
+                VStack{
+                    Divider()
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
+                        .padding(.horizontal, 22)
+                        .padding(.top, 22)
+                        .padding(.bottom, -5)
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content:{
-//                        Divider().padding(.horizontal, 22)
                         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                             Image("wheel1")
                                 .resizable()
@@ -188,8 +196,16 @@ struct CarDescView: View {
                     })
                     
                 })
+                }
                 
                 // Specs
+                VStack{
+                    Divider()
+                        
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
+                        .padding(.horizontal, 22)
+                        .padding(.top)
+                        .padding(.bottom, -5)
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         ForEach(0..<specTitles.count){
@@ -211,10 +227,14 @@ struct CarDescView: View {
                     .padding(.trailing, 10)
                 })
                 .padding()
-                .padding(.top, 10)
+                .padding(.top, 5)
+                }
                 
                 // FAQ Dropdown
-                
+                VStack{
+                    Divider()
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
+                        .padding(.horizontal, 22)
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     Text("FAQ's:")
                         .font(.system(size: 25))
@@ -222,10 +242,12 @@ struct CarDescView: View {
                     Spacer()
                 })
                 .padding(.leading, 30)
+                }
                 
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     DisclosureGroup("\(selectedValue1)", isExpanded: $isExpanded1){
                         Divider()
+                            .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                             .padding(.top, 10)
                         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                             Text(faqAns[1])
@@ -245,6 +267,7 @@ struct CarDescView: View {
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     DisclosureGroup("\(selectedValue)", isExpanded: $isExpanded){
                         Divider()
+                            .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                             .padding(.top, 10)
                         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                             Text(faqAns[0])

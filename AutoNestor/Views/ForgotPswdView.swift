@@ -12,6 +12,7 @@ enum ActiveAlert {
 }
 
 struct ForgotPswdView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var email: String = ""
     @State private var showAlert = false
     @State private var activeAlert: ActiveAlert = .first
@@ -24,7 +25,7 @@ struct ForgotPswdView: View {
                 .padding(.bottom)
             TextField("Email address", text: $email)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4)
                 .padding(.bottom)
             
@@ -43,7 +44,7 @@ struct ForgotPswdView: View {
                     }, label: {
                         Text("Next").bold()
                             .font(.system(size: 21))
-                            .accentColor(.white)
+                            .accentColor(colorScheme == .dark ? Color.black : Color.white)
                             .padding()
                             .frame(maxWidth: .infinity)
                     })
@@ -58,7 +59,7 @@ struct ForgotPswdView: View {
                         }
                     })
                 })
-                .background(Color.black)
+                .background(colorScheme == .dark ? Color.white : Color.black)
                 .cornerRadius(4)
             Spacer()
         })
@@ -71,5 +72,6 @@ struct ForgotPswdView_Previews: PreviewProvider {
         NavigationView{
             ForgotPswdView()
         }
+        .preferredColorScheme(.dark)
     }
 }

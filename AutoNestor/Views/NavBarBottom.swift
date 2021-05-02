@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NavBarBottom: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var selectedTab = 1
     @State var tabBarImageNames = ["person.fill", "house.fill", "heart.fill"]
     @State var tabNames = ["Account", "Home", "Favorites"]
@@ -39,7 +40,7 @@ struct NavBarBottom: View {
                 .navigationBarTitle("Edit Profile")
             }
         }
-        .accentColor(.black)
+        .accentColor(colorScheme == .dark ? Color.white : Color.black)
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .navigationBarHidden(true)
     }
@@ -49,6 +50,7 @@ struct NavBarBottom: View {
 struct NavBarBottom_Previews: PreviewProvider {
     static var previews: some View {
         NavBarBottom()
+            .preferredColorScheme(.dark)
     }
 }
 

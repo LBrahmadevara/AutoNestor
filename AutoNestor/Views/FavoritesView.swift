@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @Environment(\.colorScheme) var colorScheme
     let audiA3 = [["title": "2021 Audi A3 Premium", "Price" : "$60,000", "Image": "a1"],
                   ["title": "2021 Chevrolet Malibu", "Price" : "$65,000", "Image": "a2"],
                   ["title": "2020 Chevrolet Corvette", "Price" : "$50,000", "Image": "a3"],

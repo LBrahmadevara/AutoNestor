@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var email: String = ""
     @State var createPassword: String = ""
     @State var fisrtName: String = ""
@@ -20,29 +21,29 @@ struct RegisterView: View {
         VStack(alignment: .center, spacing: nil, content: {
             TextField("First Name", text: $fisrtName)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4)
                 .padding(.bottom)
             
             TextField("Last Name", text: $lastName)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4).padding(.bottom)
             
             TextField("Email address", text: $email)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4)
                 .padding(.bottom)
             
             SecureField("Create Password", text: $createPassword)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4).padding(.bottom)
             
             SecureField("Confirm Password", text: $confirmPassword)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4).padding(.bottom)
             
             NavigationLink(
@@ -56,7 +57,7 @@ struct RegisterView: View {
                         //                                                notification.toggle()
                         //                                            }
                     }, label: {
-                        Text("REGISTER").bold().accentColor(.white)
+                        Text("REGISTER").bold().accentColor(colorScheme == .dark ? Color.black : Color.white)
                             .padding()
                             .frame(maxWidth: .infinity)
                     })
@@ -67,7 +68,7 @@ struct RegisterView: View {
                     })
                     
                 }
-            ).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.black/*@END_MENU_TOKEN@*/).cornerRadius(4)
+            ).background(colorScheme == .dark ? Color.white : Color.black).cornerRadius(4)
             
             
             
@@ -108,5 +109,6 @@ struct RegisterView_Previews: PreviewProvider {
         NavigationView{
             RegisterView()
         }
+        .preferredColorScheme(.dark)
     }
 }

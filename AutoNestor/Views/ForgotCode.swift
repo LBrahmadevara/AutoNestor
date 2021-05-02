@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ForgotCode: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var code = ""
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -17,7 +18,7 @@ struct ForgotCode: View {
                 .padding(.bottom)
             TextField("Code", text: $code)
                 .padding()
-                .border(Color.black, width: 2)
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4)
                 .padding(.bottom)
             NavigationLink(
@@ -25,11 +26,11 @@ struct ForgotCode: View {
                 label: {
                     Text("Next").bold()
                         .font(.system(size: 21))
-                        .accentColor(.white)
+                        .accentColor(colorScheme == .dark ? Color.black : Color.white)
                         .padding()
                         .frame(maxWidth: .infinity)
                 })
-                .background(Color.black)
+                .background(colorScheme == .dark ? Color.white : Color.black)
                 .cornerRadius(4)
             Spacer()
         })
@@ -42,5 +43,6 @@ struct ForgotCode_Previews: PreviewProvider {
         NavigationView{
             ForgotCode()
         }
+        .preferredColorScheme(.dark)
     }
 }
