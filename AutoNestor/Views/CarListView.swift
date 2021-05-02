@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CarListView: View {
+    @Environment(\.colorScheme) var colorScheme
     var carModel: String
     var Audi: [String]
     let audiA3 = [["title": "2021 Audi A3 Premium", "Price" : "$60,000", "Image": "a1"],
@@ -61,6 +62,7 @@ struct CarListView: View {
                         })
                         .foregroundColor(Color(.label))
                     Divider()
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                 }
                 .padding(.vertical, 4)
                 .padding(.horizontal, 10)

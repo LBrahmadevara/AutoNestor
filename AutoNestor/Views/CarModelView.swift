@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CarModelView: View {
+    @Environment(\.colorScheme) var colorScheme
     var car: String
     @State var search: String = ""
     @State var isSearching = false
@@ -72,11 +73,11 @@ struct CarModelView: View {
                             destination: CarListView(carModel: item, Audi: Audi),
                             label: {
                                 Text(item)
-                            }).foregroundColor(.black)
+                            }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                     }.padding()
                     Divider()
-                        .background(Color(.systemGray4))
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                         .padding(.horizontal)
                 }
             }
@@ -87,11 +88,11 @@ struct CarModelView: View {
                             destination: CarListView(carModel: item, Audi: Audi),
                             label: {
                                 Text(item)
-                            }).foregroundColor(.black)
+                            }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                     }.padding()
                     Divider()
-                        .background(Color(.systemGray4))
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                         .padding(.horizontal)
                 }
             }
@@ -102,11 +103,11 @@ struct CarModelView: View {
                             destination: CarListView(carModel: item, Audi: Audi),
                             label: {
                                 Text(item)
-                            }).foregroundColor(.black)
+                            }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                     }.padding()
                     Divider()
-                        .background(Color(.systemGray4))
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                         .padding(.horizontal)
                 }
             }
@@ -117,11 +118,11 @@ struct CarModelView: View {
                             destination: CarListView(carModel: item, Audi: Audi),
                             label: {
                                 Text(item)
-                            }).foregroundColor(.black)
+                            }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                     }.padding()
                     Divider()
-                        .background(Color(.systemGray4))
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                         .padding(.horizontal)
                 }
             }
@@ -139,7 +140,7 @@ struct CarModelView: View {
                             Image(systemName: "square.and.pencil")
                                 .foregroundColor(Color(.label))
                             Text("Filters")
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         }
                     })
         )

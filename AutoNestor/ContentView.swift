@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         NavigationView {
             VStack{
@@ -17,27 +18,47 @@ struct ContentView: View {
                         Spacer()
                         HStack(alignment: .bottom, spacing: nil, content: {
                             Spacer()
-                            Text("Auto Nestor").foregroundColor(.white).bold().font(.system(size: 40, weight: .bold, design: .rounded)).padding(25)
+                            Text("Auto Nestor")
+                                .foregroundColor(.white).bold().font(.system(size: 40, weight: .bold, design: .rounded)).padding(25)
                         })
                     })
                 }
-                HStack(alignment: .center, content: {
+                
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     NavigationLink(
                         destination: LoginView(),
                         label: {
-                            Text("LOG IN").foregroundColor(.black).bold().padding(.horizontal, 60).padding(.vertical, 18).border(Color.black, width: 2.5).cornerRadius(6.0)
-                        }
-                    )
-                    .padding(.trailing, 4)
+                            Text("LOG IN")
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                .bold()
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
+                                .cornerRadius(6.0)
+                        })
+                    
+                    Spacer()
                     NavigationLink(
                         destination: RegisterView(),
                         label: {
-                            Text("REGISTER").foregroundColor(.black).bold().padding(.horizontal, 60).padding(.vertical, 18).border(Color.black, width: 2.5).cornerRadius(6.0)
+                            Text("REGISTER")
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                .bold()
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
+                                .cornerRadius(6.0)
                         })
                 })
-                .padding(.top, 20)
+                .padding(.top)
+                .padding(.horizontal)
+                .padding(.bottom, 35)
+                
+                
             }
-//            .navigationBarTitle("")
+            .background(colorScheme == .dark ? Color.black : Color.white)
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+//            .background(Color.white)
             .navigationBarHidden(true)
         }
         .navigationBarHidden(true)
@@ -47,5 +68,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.light)
+            
     }
 }

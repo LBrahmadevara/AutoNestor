@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var fName = "Likhitha"
-    @State var lName = "Lucky"
+    @State var lName = "Brahmadevara"
     @State var email = "abc@gmail.com"
     @State var password = "abcdef"
     @State var handleUpdate = false
     @State var notification = false
+    @State var isLoggedOut = false
     var body: some View {
-        NavigationView{
+//        NavigationView{
             ScrollView{
                 VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -26,10 +28,11 @@ struct AccountView: View {
                         TextField("", text: $fName)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(30)
+                    .padding(15)
+                    .padding(.top)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Last Name:")
@@ -39,10 +42,12 @@ struct AccountView: View {
                         TextField("", text: $lName)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(.horizontal, 30)
+                    .padding(15)
+                    .padding(.top, -5)
+                    //                    .padding(.horizontal, 30)
                     
                     HStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Email:")
@@ -58,10 +63,11 @@ struct AccountView: View {
                         TextField("", text: $email)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(30)
+                    .padding(15)
+                    .padding(.top, -5)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Text("Password:")
@@ -72,19 +78,20 @@ struct AccountView: View {
                         SecureField("", text: $password)
                             .font(.system(size: 20))
                             .padding(10)
-                            .border(Color.black, width: 2)
+                            .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                             .cornerRadius(4)
                     })
-                    .padding(.horizontal, 30)
+                    .padding(15)
+                    .padding(.top, -5)
                     
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                         Spacer()
                         Button(action: {
                             notification.toggle()
-//                            handleUpdate.toggle()
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//                                handleUpdate.toggle()
-//                            }
+                            //                            handleUpdate.toggle()
+                            //                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            //                                handleUpdate.toggle()
+                            //                            }
                         }, label: {
                             Text("UPDATE")
                                 .font(.system(size: 18))
@@ -99,13 +106,13 @@ struct AccountView: View {
                     })
                     .padding()
                     .padding(.horizontal, 50)
-                    .background(Color(.black))
-                    .foregroundColor(.white)
+                    .background(colorScheme == .dark ? Color.white : Color.black)
+                    .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(5)
                     .padding()
                     
                     NavigationLink(
-                        destination: BottomNavBar(isLoggedOut: true),
+                        destination: ContentView(),
                         label: {
                             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                                 Spacer()
@@ -116,39 +123,23 @@ struct AccountView: View {
                             })
                             .padding()
                             .padding(.horizontal, 50)
-                            .background(Color(.black))
-                            .foregroundColor(.white)
+                            .background(colorScheme == .dark ? Color.white : Color.black)
+                            .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                             .cornerRadius(5)
                             .padding(.horizontal)
                         })
                 })
-//                .overlay(
-//                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-//                        if handleUpdate{
-//                            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-//                                Spacer()
-//                                Text("Details Updated!!")
-//                                    .font(.system(size: 20))
-//                                    .bold()
-//                                    .foregroundColor(.white)
-//                                Spacer()
-//                            }).padding(23)
-//                            .foregroundColor(.white)
-//                            .background(Color(.black))
-//                        }
-//                    })
-//                    .animation(Animation.easeInOut(duration: 0.3).delay(0.3))
-//                    , alignment: .top)
-                
             }
-            .animation(.easeOut)
-            .navigationBarTitle("Edit Profile")
-        }
+//            .navigationBarTitle("Edit Profile")
+            
+//        }
     }
+    
 }
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
+            .preferredColorScheme(.light)
     }
 }

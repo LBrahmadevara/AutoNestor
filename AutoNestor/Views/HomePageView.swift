@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomePageView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var search: String = ""
     @State var isSearching = false
     let data = ["Acura", "Audi", "BMW", "Buick", "Cadillac", "Chevrolet", "Dodge", "Fiat", "Ford", "Jaguar", "Jeep", "Kia","Land Rover", "Lexus", "Mazda", "Mercedes-Benz", "Mini", "Mitsubishi", "Nissan", "Porsche", "Ram", "Saturn", "Scion", "Telsa", "Toyota", "Volkswagen", "Volvo"]
@@ -66,11 +67,11 @@ struct HomePageView: View {
                             destination: CarModelView(car: item),
                             label: {
                                 Text(item)
-                            }).foregroundColor(.black)
+                            }).foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                         Spacer()
                     }.padding()
                     Divider()
-                        .background(Color(.systemGray4))
+                        .background(colorScheme == .dark ? Color(.white) : Color(.systemGray4))
                         .padding(.horizontal)
                 }
             }
@@ -83,7 +84,7 @@ struct HomePageView: View {
                                                 Image(systemName: "square.and.pencil")
                                                     .foregroundColor(Color(.label))
                                                 Text("Filters")
-                                                    .foregroundColor(.black)
+                                                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                                             }
                                         })
             )
