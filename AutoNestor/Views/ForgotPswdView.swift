@@ -28,6 +28,7 @@ struct ForgotPswdView: View {
                 .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
                 .cornerRadius(4)
                 .padding(.bottom)
+                .font(.system(size: 18))
             
             NavigationLink(
                 destination: ForgotCode(),

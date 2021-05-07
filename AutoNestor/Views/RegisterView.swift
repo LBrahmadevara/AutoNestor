@@ -16,6 +16,8 @@ struct RegisterView: View {
     @State var confirmPassword: String = ""
     @State var notification = false
     @State var handleRegistration = false
+    @State var isShowingCreatePass = false
+    @State var isShowingConfirmPass = false
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
@@ -36,15 +38,63 @@ struct RegisterView: View {
                 .cornerRadius(4)
                 .padding(.bottom)
             
-            SecureField("Create Password", text: $createPassword)
-                .padding()
-                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
-                .cornerRadius(4).padding(.bottom)
+            ZStack{
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    if (!isShowingCreatePass){
+                        SecureField("Password", text: $createPassword)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    else{
+                        TextField("Password", text: $createPassword)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    Button(action: {
+                        isShowingCreatePass.toggle()
+                    }, label: {
+                        Image(systemName: isShowingCreatePass ? "eye" : "eye.slash")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                    }).padding(.trailing)
+                })
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
+                .cornerRadius(4)
+                .padding(.bottom, 10)
+            }
             
-            SecureField("Confirm Password", text: $confirmPassword)
-                .padding()
-                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
-                .cornerRadius(4).padding(.bottom)
+            ZStack{
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    if (!isShowingConfirmPass){
+                        SecureField("Password", text: $confirmPassword)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    else{
+                        TextField("Password", text: $confirmPassword)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    Button(action: {
+                        isShowingConfirmPass.toggle()
+                    }, label: {
+                        Image(systemName: isShowingConfirmPass ? "eye" : "eye.slash")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                    }).padding(.trailing)
+                })
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
+                .cornerRadius(4)
+                .padding(.bottom, 10)
+            }
+            
+//            SecureField("Create Password", text: $createPassword)
+//                .padding()
+//                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
+//                .cornerRadius(4).padding(.bottom)
+//
+//            SecureField("Confirm Password", text: $confirmPassword)
+//                .padding()
+//                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
+//                .cornerRadius(4).padding(.bottom)
             
             NavigationLink(
                 destination: ContentView(),
@@ -109,6 +159,6 @@ struct RegisterView_Previews: PreviewProvider {
         NavigationView{
             RegisterView()
         }
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
     }
 }

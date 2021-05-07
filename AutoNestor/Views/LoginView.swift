@@ -14,25 +14,44 @@ struct LoginView: View {
     @State var password: String = ""
     @State var loginAlert = false
     @State var handleLogin = false
+    @State var isShowingPass = false
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
             
             
             TextField("Email address", text: $email)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
+                //                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .foregroundColor(colorScheme == .dark ? .white : .black)
                 .padding()
                 .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
                 .padding(.bottom)
-                
-            SecureField("Password", text: $password)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+                .font(.system(size: 18))
+            
+            ZStack{
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    if (!isShowingPass){
+                        SecureField("Password", text: $password)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    else{
+                        TextField("Password", text: $password)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    Button(action: {
+                        isShowingPass.toggle()
+                    }, label: {
+                        Image(systemName: isShowingPass ? "eye" : "eye.slash")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                    }).padding(.trailing)
+                })
                 .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
                 .padding(.bottom, 10)
+            }
             
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 Spacer()
@@ -75,11 +94,11 @@ struct LoginView: View {
         .padding(.horizontal, 20)
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        VStack {
-                            Text("Log In").font(.system(size: 30, weight: .bold, design: .rounded))
-                        }
-                    }
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("Log In").font(.system(size: 30, weight: .bold, design: .rounded))
+                }
+            }
         }
         .background(colorScheme == .dark ? Color.black : Color.white)
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -91,8 +110,8 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             LoginView()
-//                .navigationBarHidden(true)
+            //                .navigationBarHidden(true)
         }
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
     }
 }

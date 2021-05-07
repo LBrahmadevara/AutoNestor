@@ -26,6 +26,8 @@
 		17ABE1612637784C00C1DF29 /* ForgotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1602637784C00C1DF29 /* ForgotCode.swift */; };
 		17ABE1642637799000C1DF29 /* ConfirmPswd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABE1632637799000C1DF29 /* ConfirmPswd.swift */; };
 		17B3A43F263A3512001FA84D /* NavBarBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3A43E263A3512001FA84D /* NavBarBottom.swift */; };
+		17CE11A3264494CD00934896 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE11A2264494CD00934896 /* TestView.swift */; };
+		17CE11A72644C05200934896 /* Test2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE11A62644C05200934896 /* Test2View.swift */; };
 		17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0E2D1262A3EAA0027284A /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		17ABE1602637784C00C1DF29 /* ForgotCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotCode.swift; sourceTree = "<group>"; };
 		17ABE1632637799000C1DF29 /* ConfirmPswd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPswd.swift; sourceTree = "<group>"; };
 		17B3A43E263A3512001FA84D /* NavBarBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarBottom.swift; sourceTree = "<group>"; };
+		17CE11A2264494CD00934896 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		17CE11A62644C05200934896 /* Test2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2View.swift; sourceTree = "<group>"; };
 		17E0E2D1262A3EAA0027284A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +125,8 @@
 				17ABE1602637784C00C1DF29 /* ForgotCode.swift */,
 				17ABE1632637799000C1DF29 /* ConfirmPswd.swift */,
 				1771E0BD2638ADCD00296014 /* ImageView.swift */,
+				17CE11A2264494CD00934896 /* TestView.swift */,
+				17CE11A62644C05200934896 /* Test2View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 				1785F6892627AFE4006BE1A5 /* FilterView.swift in Sources */,
 				1785F6A1262814FA006BE1A5 /* CarListView.swift in Sources */,
 				174F81E3262568FD00AFA1CD /* LoginView.swift in Sources */,
+				17CE11A72644C05200934896 /* Test2View.swift in Sources */,
 				17ABE1612637784C00C1DF29 /* ForgotCode.swift in Sources */,
 				1771E0BE2638ADCD00296014 /* ImageView.swift in Sources */,
 				173D275E2626687A00F499CD /* RegisterView.swift in Sources */,
@@ -209,6 +216,7 @@
 				1785F6902627B5BE006BE1A5 /* DropDownView.swift in Sources */,
 				172697112624EB5300E9D30F /* AutoNestorApp.swift in Sources */,
 				17ABE15E263761D500C1DF29 /* ForgotPswdView.swift in Sources */,
+				17CE11A3264494CD00934896 /* TestView.swift in Sources */,
 				17E0E2D2262A3EAA0027284A /* AccountView.swift in Sources */,
 				17B3A43F263A3512001FA84D /* NavBarBottom.swift in Sources */,
 				171F9E9C2626C68D00D47C90 /* HomePageView.swift in Sources */,

@@ -19,6 +19,8 @@ struct ConfirmPswd: View {
     @State var handleSubmit = false
     @State private var shwAlert = false
     @State private var activeAlert: confirmAlert = .first
+    @State var isShowingCreatePass = false
+    @State var isShowingConfirmPass = false
 
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
@@ -26,16 +28,55 @@ struct ConfirmPswd: View {
                 .bold()
                 .font(.system(size: 20))
                 .padding(.bottom)
-            SecureField("Password", text: $pswd)
-                .padding()
-                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
+            
+            ZStack{
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    if (!isShowingCreatePass){
+                        SecureField("Password", text: $pswd)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    else{
+                        TextField("Password", text: $pswd)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    Button(action: {
+                        isShowingCreatePass.toggle()
+                    }, label: {
+                        Image(systemName: isShowingCreatePass ? "eye" : "eye.slash")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                    }).padding(.trailing)
+                })
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
-                .padding(.bottom)
-            SecureField("Confirm password", text: $confirmPswd)
-                .padding()
-                .border(colorScheme == .dark ? Color.white : Color.black, width: 2)
+                .padding(.bottom, 10)
+            }
+            
+            ZStack{
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    if (!isShowingConfirmPass){
+                        SecureField("Password", text: $confirmPswd)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    else{
+                        TextField("Password", text: $confirmPswd)
+                            .padding()
+                            .font(.system(size: 18))
+                    }
+                    Button(action: {
+                        isShowingConfirmPass.toggle()
+                    }, label: {
+                        Image(systemName: isShowingConfirmPass ? "eye" : "eye.slash")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                    }).padding(.trailing)
+                })
+                .border(colorScheme == .dark ? Color.white : Color.black, width: 2.5)
                 .cornerRadius(4)
-                .padding(.bottom)
+                .padding(.bottom, 10)
+            }
+            
             NavigationLink(
                 destination: LoginView(),
                 isActive: $handleSubmit,
@@ -104,6 +145,6 @@ struct ConfirmPswd_Previews: PreviewProvider {
         NavigationView{
             ConfirmPswd()
         }
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
     }
 }
