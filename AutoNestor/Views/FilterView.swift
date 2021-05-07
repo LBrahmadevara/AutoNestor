@@ -231,6 +231,19 @@ struct FilterView: View {
                 .padding(.top, -4)
             })
             .navigationTitle("Filters")
+            .navigationBarItems(trailing: Button(action: {
+                minPrice = ""
+                maxPrice = ""
+                minYear = ""
+                maxYear = ""
+                selectedValueBT = "None"
+                selectedValueDT = "None"
+                selectedValueFT = "None"
+                selectedValueC = "None"
+            }, label: {
+                Text("Clear Filters")
+                    .foregroundColor(.black)
+            }))
         }
     }
 }
