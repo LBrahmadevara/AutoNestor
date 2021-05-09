@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationView {
             VStack{
                 ZStack{
-                    Image("Car").resizable().edgesIgnoringSafeArea(.all)
+                    Image("Car").resizable().edgesIgnoringSafeArea(.all).opacity(0.9)
                     VStack(alignment: .center, spacing: nil, content: {
                         Spacer()
                         HStack(alignment: .bottom, spacing: nil, content: {

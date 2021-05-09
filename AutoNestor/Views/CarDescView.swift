@@ -302,7 +302,7 @@ struct CarDescView: View {
                                 }))
                         }
                     }
-                    .background(Color.black)
+                    .background(colorScheme == .dark ? Color(.black) : Color(.white))
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .tabViewStyle(PageTabViewStyle())
                     .overlay(
@@ -312,9 +312,10 @@ struct CarDescView: View {
                             }
                         }, label: {
                             Image(systemName: "xmark")
-                                .foregroundColor(.white)
+                                .foregroundColor(colorScheme == .dark ? Color(.black) : Color(.white))
                                 .padding()
-                                .background(Color.white.opacity(0.35))
+                                .background(colorScheme == .dark ? Color.white.opacity(0.35) : Color(.lightGray))
+//                                .background(Color.white.opacity(0.35))
                                 .clipShape(Circle())
                         })
                         , alignment: .topTrailing
