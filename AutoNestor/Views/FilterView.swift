@@ -242,7 +242,7 @@ struct FilterView: View {
                 selectedValueC = "None"
             }, label: {
                 Text("Clear Filters")
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
             }))
         }
     }
@@ -253,6 +253,6 @@ struct FilterView_Previews: PreviewProvider {
         NavigationView{
             FilterView()
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
     }
 }
