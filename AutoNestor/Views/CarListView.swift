@@ -17,7 +17,7 @@ struct CarListView: View {
                   ["title": "2020 Audi A3 Premium", "Price" : "$55,000", "Image": "a4"],
                   ["title": "2019 Audi A3 Premium", "Price" : "$50,000", "Image": "a1"],
                   ["title": "2018 Audi A3 Premium", "Price" : "$57,000", "Image": "a2"]]
-    @State var isHearted = [false, false, false, false, false, false]
+    @State var isHearted = [false, true, true, true, false, false]
     
     var body: some View {
         ScrollView{
