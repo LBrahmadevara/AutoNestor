@@ -69,7 +69,7 @@ struct LoginView: View {
                 isActive: $handleLogin,
                 label: {
                     Button(action: {
-                        if email == "Abc@gmail.com"{
+                        if email == "Likhitha@gmail.com"{
                             handleLogin.toggle()
                         }
                         else{

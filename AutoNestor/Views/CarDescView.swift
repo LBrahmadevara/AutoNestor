@@ -302,7 +302,7 @@ struct CarDescView: View {
                                 }))
                         }
                     }
-                    .background(colorScheme == .dark ? Color(.black) : Color(.white))
+                    .background(colorScheme == .dark ? Color(.black) : Color(.black))
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .tabViewStyle(PageTabViewStyle())
                     .overlay(

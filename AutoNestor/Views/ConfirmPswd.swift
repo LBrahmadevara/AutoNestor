@@ -56,12 +56,12 @@ struct ConfirmPswd: View {
             ZStack{
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     if (!isShowingConfirmPass){
-                        SecureField("Password", text: $confirmPswd)
+                        SecureField("Confirm Password", text: $confirmPswd)
                             .padding()
                             .font(.system(size: 18))
                     }
                     else{
-                        TextField("Password", text: $confirmPswd)
+                        TextField("Confirm Password", text: $confirmPswd)
                             .padding()
                             .font(.system(size: 18))
                     }

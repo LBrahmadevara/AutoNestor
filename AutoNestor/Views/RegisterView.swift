@@ -65,12 +65,12 @@ struct RegisterView: View {
             ZStack{
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     if (!isShowingConfirmPass){
-                        SecureField("Password", text: $confirmPassword)
+                        SecureField("Confirm Password", text: $confirmPassword)
                             .padding()
                             .font(.system(size: 18))
                     }
                     else{
-                        TextField("Password", text: $confirmPassword)
+                        TextField("Confirm Password", text: $confirmPassword)
                             .padding()
                             .font(.system(size: 18))
                     }
